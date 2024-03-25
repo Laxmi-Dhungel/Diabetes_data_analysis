@@ -46,7 +46,7 @@ I rechecked the divided data to confirm that they contain values as expected (ze
 <img width="418" alt="concat_data-divided" src="https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/9ec0554f-b36c-4231-bfbf-60c3fbc40267">
 
 
+![Data_cleaning_and_validation_steps](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/9b4dfacc-5a4d-4c28-a9e4-029698fc25f0)
 
-[Data_cleaning_and_validation_steps.pptx](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/files/14748468/Data_cleaning_and_validation_steps.pptx)
 
 
