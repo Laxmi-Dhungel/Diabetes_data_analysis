@@ -47,4 +47,6 @@ I rechecked the divided data to confirm that they contain values as expected (ze
 
 
 
+[Data_cleaning_and_validation_steps.pptx](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/files/14748468/Data_cleaning_and_validation_steps.pptx)
+
 
