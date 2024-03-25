@@ -26,3 +26,25 @@ Figure 2. Summary statistics of each column. The summary statistics showed unusu
 Figure 3. Total count of rows with values 0 for columns glucose, blood pressure, skin thickness, Insulin and BMI. The data percentages for value 0 was lesser than 5% for columns glucose, blood pressure and BMI whereas greater than 5% for insulin and skin thickness. 
 
 
+I sorted the unique values for each of these columns to determine the second minimum values. The values looked okay for all the other columns except the Insulin column where the second minimum value was 1. There was only one row with an insulin value of 1 hence I removed that row. Since the percentage of data with value 0 for Skin thickness and Insulin columns were >20%, I did not want to impute them with mean or median value. Thus, I used machine learning to replace values 0 for these columns. 
+
+I first divided data into 4 categories. 
+1.	Data with no zero on both skinthickness and insulin column
+2.	Data with zero value in both skinthickness and insulin column
+3.	Data with value zero in only insulin column
+4.	Data with value zero in only skin thickness column
+
+
+I rechecked the divided data to confirm that they contain values as expected (zeros and non_zeros). I then used linear regression to predict and replace the values 0 with predicted values for insulin and skin thickness column. After replacing values 0 with predicted values for each divided dataset, I concatenated these divided data to generate a new updated data. There was no data with skin thickness value as zero and insulin as non-zero. The shape of updated data was same as data before division hence confirming that this way of dividing data and concatenating later did not impact data structure. 
+
+<img width="431" alt="data division" src="https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/6d14c786-41e6-4008-bda5-caac8c5e0b24">
+
+
+<img width="605" alt="linreg_insulin_skinthickness" src="https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/992e065c-367a-4e1f-8f77-0e3c9d83e665">
+
+
+<img width="418" alt="concat_data-divided" src="https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/9ec0554f-b36c-4231-bfbf-60c3fbc40267">
+
+
+
+
