@@ -72,5 +72,5 @@ Figure 5. Histogram showing data distribution for different attributes for each 
 
 ![data_dist_part2](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/12adf675-fe5c-4f84-b9ef-cbac4ef669e4)
 
-Figure 6. Histogram showing data distribution for different attributes for each disease outcome. A) Glucose, B) Insulin, C) Blood Pressure, D) Skin Thickness. The data were not normally distributed and had outliers.
+Figure 6. Histogram showing data distribution for different attributes for each disease outcome. A) Glucose, B) Insulin, C) Blood Pressure, D) Skin Thickness. Outcome=0 (Non-diabetic), Outcome=1 (Diabetic). The data were not normally distributed and had outliers.
 
