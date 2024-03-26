@@ -86,3 +86,4 @@ Figure 7. The line graph showing percentages of diabetic patients for each age c
 
 
 
+**Impact of pregnancy on diabetes outcome**
