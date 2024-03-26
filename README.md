@@ -74,3 +74,5 @@ Figure 5. Histogram showing data distribution for different attributes for each 
 
 Figure 6. Histogram showing data distribution for different attributes for each disease outcome. A) Glucose, B) Insulin, C) Blood Pressure, D) Skin Thickness. Outcome=0 (Non-diabetic), Outcome=1 (Diabetic). The data were not normally distributed and had outliers.
 
+
+
