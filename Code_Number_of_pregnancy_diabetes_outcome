@@ -36,13 +36,35 @@ df_preg_outcome_percentage_bar.bar_label(df_preg_outcome_percentage_bar.containe
 
 plt.show()
 
+
 #number of pregnancies per age group for each disease outcome
-age_pregnancies_boxplot=sns.boxplot(x="age_group", y="Pregnancies", hue="Outcome", data=df_updated)
-plt.legend(title='Diabetes')
-plt.xticks(rotation=90)
-plt.ylabel("Number of pregnancies")
-plt.title("Number of pregnancies grouped by age for each disease outcome")
-plt.show()
+df_preg_gr_age_outcome=pd.DataFrame(df_updated.groupby(["age_group", "Outcome"])["Pregnancies"].agg("median"))
+df_preg_gr_age_outcome_pivot=pd.pivot_table(df_preg_gr_age_outcome, index="age_group", columns="Outcome", values="Pregnancies")
+
+print("These have higher number of pregnancies in diabetic patients: ",df_preg_gr_age_outcome_pivot[df_preg_gr_age_outcome_pivot[1]>df_preg_gr_age_outcome_pivot[0]])
+
+print("These have lower number of pregnancies in diabetic patients: ",df_preg_gr_age_outcome_pivot[df_preg_gr_age_outcome_pivot[1]<df_preg_gr_age_outcome_pivot[0]])
+
+##Check for sample size for each age group
+print(df_updated.groupby(["age_group", "Outcome"])["Pregnancies"].agg("count"))
+
+df_updated_no_70_above=df_updated[df_updated["age_group"]!=">70 y"]  #Since age group > 70 have only one data
+
+
+age_preg_outcome_p_value_dict={}
+unique_age_group=list(df_updated_no_70_above["age_group"].unique())
+print(unique_age_group)
+age_index=0
+while age_index<len(unique_age_group):
+    df_diabetic_age_group=df_diabetic[df_diabetic["age_group"]==unique_age_group[age_index]]
+    df_non_diabetic_age_group=df_non_diabetic[df_non_diabetic["age_group"]==unique_age_group[age_index]]
+    stat, p_value = mannwhitneyu(df_diabetic_age_group["Pregnancies"], df_non_diabetic_age_group["Pregnancies"])
+    age_preg_outcome_p_value_dict[unique_age_group[age_index]]= p_value
+    age_index+=1
+
+
+age_preg_outcome_p_value_df=pd.DataFrame([age_preg_outcome_p_value_dict])
+
 
 ##Odds ratio and relative risk of diabetes when >=4 pregnancies
 ##Odds ratio: Diabetes (1) odds in >=4pregnancies/diabetes (1) odds in < 4 pregnancies
