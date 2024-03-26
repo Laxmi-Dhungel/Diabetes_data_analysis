@@ -86,7 +86,7 @@ Figure 7. The line graph showing percentages of diabetic patients for each age c
 
 
 
-**Impact of pregnancy on diabetes outcome**
+**Impact of pregnancy on Diabetes outcome**
 
 To study the effect of number of pregnancies on diabetes outcome, the median number of pregnancies for each diabetic outcome was determined. The median number of pregnancies for diabetic patients (4) was significantly higher than the non-diabetic patients (2). Further, the median number of pregnancies for diabetic and non-diabetic patients for different age-groups was determined. The age groups 21-25y, 26-30 y, 36-40 y and 46-50 y had higher median number of pregnancies in diabetic patients whereas age-groups 31-35 y, 56-60 y, 61-65 y and 66-70 y had lower median number of pregnancies in diabetic patients. However, the median number of pregnancies was not significantly different for any age-group (Mann-whitneyU test, P<0.05).
 
@@ -103,3 +103,12 @@ Figure 8. Boxplot showing median number of pregnancies for each diabetes outcome
 
 Figure 9. Boxplot showing median number of pregnancies for each diabetes outcome grouped by age category. There was no significant difference in number of pregnancies between diabetic and non-diabetic patients when grouped by age (Mann-whitney U test, sig=p<0.05). Diabetes outcome 0 represent non-diabetic patients whereas Diabetes Outcome 1 represent diabetic patients. 
 
+
+![pregnancies_percentages](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/d04b577f-d6c0-43af-94c7-616ef8dadc70)
+
+Figure 10. Barplot showing percentages of non-diabetic and diabetic patients with less than 4 pregnancies or greater than or equal to 4 pregnancies. There was higher percentage of diabetic patients in group who had greater or equal to 4 pregnancies. The chisquare test showed significant association between number of pregnancies (<4 pregnancies/>=4 pregnancies) and diabetes outcome (p<0.05).  
+
+
+![oR_RR_pregnancies](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/9757c20b-7afc-40b7-9d69-c6ef60634493)
+
+Figure 11. Odds ratio and relative risk for diabetes when the number of pregnancies is greater or equal to 4. There odds ratio and relative ratio for diabetes was higher when the patients had number of pregnancies greater or equal to 4. 
