@@ -93,7 +93,13 @@ To study the effect of number of pregnancies on diabetes outcome, the median num
 Further, the data was divided into two groups (<4 pregnancies and >=4 pregnancies) based on the number of pregnancies. The number 4 was chosen because it is the median number of pregnancies in the diabetic patients. The results showed higher percentages of diabetic patients with number of pregnancies greater or equal to 4 (44.8%) compared to number of pregnancies <4 (26.13%). The chi square test showed significant association between number of pregnancies (<4 pregnancies and >=4 pregnancies) and diabetes outcome (P<0.05). The odds ratio (2.26) and relative risk (1.4) for diabetes were also higher in patients with greater or equal to 4 pregnancies. 
 
 
-![Pregnancies_boxplot](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/984224df-521e-487f-bbec-dc3f09316305)
+![Pregnancies_boxplot](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/d8a5010d-05d8-4b57-878b-94a9d411bc7c)
 
-Figure 8. Boxplot showing median number of pregnancies for each diabetes outcome. The media number of pregnancy was significantly higher for diabetic patients compared to non-diabetic patients (Mann-whitney U test, p<0.05). The Diabetes outcome 0 represent non-diabetic patients whereas Diabetes Outcome 1 represent diabetic patients. 
+
+Figure 8. Boxplot showing median number of pregnancies for each diabetes outcome. The median number of pregnancy was significantly higher for diabetic patients compared to non-diabetic patients (Mann-whitney U test, sig=p<0.05). The Diabetes outcome 0 represent non-diabetic patients whereas Diabetes Outcome 1 represent diabetic patients. 
+
+
+![pregnancies_age](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/9c6198ef-c1fa-4c87-8af1-6a441d623ca2)
+
+Figure 9. Boxplot showing median number of pregnancies for each diabetes outcome grouped by age category. There was no significant difference in number of pregnancies between diabetic and non-diabetic patients when grouped by age (Mann-whitney U test, sig=p<0.05). Diabetes outcome 0 represent non-diabetic patients whereas Diabetes Outcome 1 represent diabetic patients. 
 
