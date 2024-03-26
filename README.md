@@ -75,4 +75,14 @@ Figure 5. Histogram showing data distribution for different attributes for each 
 Figure 6. Histogram showing data distribution for different attributes for each disease outcome. A) Glucose, B) Insulin, C) Blood Pressure, D) Skin Thickness. Outcome=0 (Non-diabetic), Outcome=1 (Diabetic). The data were not normally distributed and had outliers.
 
 
+**Impact of age on Diabetes outcome**
+
+The age was divided into different categories with 5-year intervals. The diabetic percentages for each age category were determined. The age group 51-55 had the highest percentages of diabetic patients. The age group >70 had the lowest diabetic percentage (0%). However, this could be due to low data for these group patients (there was only 1 data). The age group 21-25 had the second lowest percentages of diabetic patients. The data showed a decline in percentages of diabetic patients at older ages. However, the data was skewed and had lower frequency of population at the older ages which may be one of the reason contributing to the observed lower percentages of diabetic patients at these ages.  
+
+
+![Age_diabetic_percentages](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/d00096bc-034b-4d9c-bda1-7c5d2faaee63)
+
+Figure 7. The line graph showing percentages of diabetic patients for each age cattegory. The age was divided into different categories with 5-year intervals. The age-group 51-55 had highest percentages of diabetic patients. There was only 1 data for age-group >70. When this group (>70) was considered then the age group 21-25 had the lowest percentages of diabetes patients.
+
+
 
