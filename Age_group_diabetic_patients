@@ -1,0 +1,24 @@
+bins= [20,25,30,35,40,45,50,55,60,65,70, np.inf]
+labels = ["21-25 y", "26-30 y", "31-35 y","36-40 y", "41-45 y", "46-50 y", "51-55 y", "56-60 y", "61-65 y", "66-70 y", ">70 y" ]
+df_updated['age_group'] = pd.cut(df_updated["Age"], bins=bins, labels=labels)
+
+df_diabetic=df_updated[df_updated["Outcome"]==1]
+
+df_non_diabetic=df_updated[df_updated["Outcome"]==0]
+
+print(df_diabetic.groupby("age_group")["Outcome"].count())
+
+print(df_updated.groupby("age_group")["Outcome"].count())
+
+
+df_age_percentage=(df_diabetic.groupby("age_group")["Outcome"].count()/df_updated.groupby("age_group")["Outcome"].count())*100
+
+print(df_age_percentage)
+
+age_lineplot=sns.lineplot(df_age_percentage)
+plt.xticks(rotation=90)
+plt.ylim(0,100)
+plt.ylabel("Diabetic percentage")
+plt.xlabel("Age_group")
+plt.title("Percentage of diabetic patients per age group")
+plt.show()
