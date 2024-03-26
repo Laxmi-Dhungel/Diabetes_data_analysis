@@ -1,0 +1,189 @@
+#Data cleaning and validation
+
+import pandas as pd
+import numpy as np
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+df=pd.read_csv("Diabetes_datasets.csv")
+print(df.dtypes)
+print(df.shape)
+
+##Looking at Descriptive data
+print(df["Pregnancies"].describe())
+print(df["Glucose"].describe()) ###looks unusual data for minimum glucose level 0, maximum is 199
+
+print(df["BloodPressure"].describe()) ##Looks unusual wuth minimum blood pressure 0
+
+print(df["SkinThickness"].describe())  ## Minimum skin thickness looks unusual with minimum as 0
+
+print(df["Insulin"].describe())  ##minimim insulin =0 looks unusual
+
+print(df["BMI"].describe())  ##minimum looks unusual 0
+
+print(df["DiabetesPedigreeFunction"].describe()) ##looks okay
+
+print(df["Age"].describe())#Looks okay
+df_describe=df.describe(include="all")
+
+df_describe.to_csv("descriptive_diabetes_all")
+
+print(df_describe)
+
+#Value counts for outcome
+print(df["Outcome"].value_counts()) ##Looks okay
+
+#Duplicate value counts
+print(df[df.duplicated()]) ##No duplicate values
+
+#Missing values count
+print(df.isna().sum()) ##No missing values
+
+print(df[df["Glucose"]==0]) ##5 rows with Glucose 0
+
+print(df[df["BloodPressure"]==0]) ##35 rows with Blood pressure 0
+
+print(df[df["SkinThickness"]==0]) ##228 rows with skin thickness 0
+
+print(df[df["Insulin"]==0]) #374 rows with insulin 0
+
+print("The number of rows with insulin value 0 are: ", df["Insulin"].value_counts()[0]) ##374 rows with insulin 0
+
+print("The number of rows with BMI 0 are: ", df["BMI"].value_counts()[0]) 
+
+values_zero_dict={}
+column_names=["Glucose", "Blood pressure", "SkinThickness", "Insulin", "BMI"]
+Count_zero=[df["Glucose"].value_counts()[0], df["BloodPressure"].value_counts()[0], df["SkinThickness"].value_counts()[0], df["Insulin"].value_counts()[0], df["BMI"].value_counts()[0]]
+
+values_zero_dict["column_names"]=column_names
+
+values_zero_dict["zero_count"]=Count_zero
+values_zero_df=pd.DataFrame(values_zero_dict)
+
+values_zero_df["zero_percentage"]=(values_zero_df["zero_count"]/len(df))*100  #769 is the total number of rows in data
+
+print(sorted(df["Glucose"].unique())) #minimum 0, second smallest 44, highest 199
+
+print(sorted(df["BloodPressure"].unique())) #minimum 0, second smallest 24, highest 122
+
+print(sorted(df["SkinThickness"].unique())) # minimum 0, second smallest 7, largest 99
+
+print(sorted(df["Insulin"].unique())) # minimum 0, second smallest 1, third smallest 14, highest 846
+
+print(df["Insulin"].describe())
+
+print(sorted(df["BMI"].unique())) #minimum 0, second smallest 18.2, largest 67.1
+
+print(df["Insulin"].value_counts()[1]) ##Only 1 value in insulin column as 1. 
+
+
+
+print(df["Pregnancies"].value_counts()[0]) ###vale 0 in 112 rows for pregnancy
+
+#######################################
+#df is further cleaned by removing rows with value 0 for glucose, blood pressure and BMI
+df=df[(df["Glucose"]!=0) & (df["BloodPressure"]!=0) & (df["BMI"]!=0)]
+print("The data shape is: ", df.shape)
+
+#Drop row with insulin value 1 since there is only one row
+df=df[df["Insulin"]!=1]
+print(df.shape)
+
+#####################################################################
+
+#####Divide data into different parts based on if they have 0 values in insulin and skin thickness columns since they have higher number of value 0
+##For other columns rows with values 0 will be removed
+
+###The data will be divided as:
+# 1. Data with no zero on both skinthickness and insulin column
+# 2. Data with zero valaue in both skinthickness and insulin column
+# 3. Data with value zero in only insulin column
+# 4.  Data with value zero in only skin thickness column
+
+#Data with non-zero value in insulin and skin thickness column
+df_non_zero_I_S=df[(df["Insulin"]!=0) & (df["SkinThickness"]!=0)]
+print(df_non_zero_I_S.shape)
+print(df_non_zero_I_S[df_non_zero_I_S["Insulin"]==0])  ##Looks good. Gave empty dataframe
+print(df_non_zero_I_S[df_non_zero_I_S["SkinThickness"]==0]) ##Looks good. Gave empty dataframe
+
+
+#Data with zero value in both insulin and skinthickness column
+df_zero_I_S=df[(df["Insulin"]==0) & (df["SkinThickness"]==0)]
+print(df_zero_I_S.shape)
+print(df_zero_I_S[df_zero_I_S["Insulin"]!=0])  ##Looks good. Gave empty dataframe
+print(df_zero_I_S[df_zero_I_S["SkinThickness"]!=0]) ##Looks good. Gave empty dataframe
+
+
+#Data with zero value in only insulin column
+df_I_zero=df[(df["Insulin"]==0)& (df["SkinThickness"]!=0)]
+print(df_I_zero[["Insulin", "SkinThickness"]])
+print(df_I_zero.shape)
+
+##Data with zero value in only skinthickness column
+df_S_zero=df[(df["Insulin"]!=0) & (df["SkinThickness"]==0)]
+print(df_S_zero[["Insulin","SkinThickness"]])
+print(df_S_zero.shape)
+
+
+#################################
+#Predict insulin and skin thickness values with 0 based on data that don't have 0 values using linear regression
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+X=df_non_zero_I_S.drop(["Insulin", "SkinThickness"], axis=1).values
+
+y_I=df_non_zero_I_S["Insulin"].values
+                  
+
+X_new=df_zero_I_S.drop(["Insulin", "SkinThickness"], axis=1).values
+
+X_new_I_zero=df_I_zero.drop(["Insulin", "SkinThickness"], axis=1).values### ############ This is to predict values for only insulin 0
+
+
+X_train_I, X_test_I, y_train_I, y_test_I = train_test_split(X, y_I, test_size=0.3, random_state=42)
+
+reg_i = LinearRegression()
+reg_i.fit(X_train_I, y_train_I)
+
+y_I_predict=reg_i.predict(X_new)
+
+y_I_only_zero_predict=reg_i.predict(X_new_I_zero)
+
+#print(y_I_S_predict)
+#print(X_new)
+
+
+df_zero_I_S["Insulin"]=y_I_predict
+
+
+
+#print(df_zero_I_S["Insulin"])
+
+
+df_I_zero["Insulin"]=y_I_only_zero_predict
+
+
+
+
+#### Predict skin thickness values
+y_S=df_non_zero_I_S["SkinThickness"].values
+
+X_train_S, X_test_S, y_train_S, y_test_S = train_test_split(X, y_S, test_size=0.3, random_state=42)
+
+reg_S = LinearRegression()
+reg_S.fit(X_train_S, y_train_S)
+
+y_S_predict=reg_S.predict(X_new)
+
+df_zero_I_S["SkinThickness"]=y_S_predict
+
+#print(df_zero_I_S["SkinThickness"])
+
+
+######## Concat all tha data (Non-zero both, zero both and zero insulin only, no need for skinthickness only 0 as there are no data for it)
+
+df_updated=pd.concat([df_non_zero_I_S, df_zero_I_S, df_I_zero])
+print(df_updated.head())
+print(df_updated.shape)
+#print(df_updated[df_updated["Insulin"]==0])
+#print(df_updated[df_updated["SkinThickness"]==0])
