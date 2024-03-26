@@ -87,3 +87,13 @@ Figure 7. The line graph showing percentages of diabetic patients for each age c
 
 
 **Impact of pregnancy on diabetes outcome**
+
+To study the effect of number of pregnancies on diabetes outcome, the median number of pregnancies for each diabetic outcome was determined. The median number of pregnancies for diabetic patients (4) was significantly higher than the non-diabetic patients (2). Further, the median number of pregnancies for diabetic and non-diabetic patients for different age-groups was determined. The age groups 21-25y, 26-30 y, 36-40 y and 46-50 y had higher median number of pregnancies in diabetic patients whereas age-groups 31-35 y, 56-60 y, 61-65 y and 66-70 y had lower median number of pregnancies in diabetic patients. However, the median number of pregnancies was not significantly different for any age-group (Mann-whitneyU test, P<0.05).
+
+Further, the data was divided into two groups (<4 pregnancies and >=4 pregnancies) based on the number of pregnancies. The number 4 was chosen because it is the median number of pregnancies in the diabetic patients. The results showed higher percentages of diabetic patients with number of pregnancies greater or equal to 4 (44.8%) compared to number of pregnancies <4 (26.13%). The chi square test showed significant association between number of pregnancies (<4 pregnancies and >=4 pregnancies) and diabetes outcome (P<0.05). The odds ratio (2.26) and relative risk (1.4) for diabetes were also higher in patients with greater or equal to 4 pregnancies. 
+
+
+![Pregnancies_boxplot](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/984224df-521e-487f-bbec-dc3f09316305)
+
+Figure 8. Boxplot showing median number of pregnancies for each diabetes outcome. The media number of pregnancy was significantly higher for diabetic patients compared to non-diabetic patients (Mann-whitney U test, p<0.05). The Diabetes outcome 0 represent non-diabetic patients whereas Diabetes Outcome 1 represent diabetic patients. 
+
