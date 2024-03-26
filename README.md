@@ -56,3 +56,14 @@ Figure 4. Summary of data cleaning and validation steps for diabetes data obtain
 
 **Data Analysis**
 
+
+**Distribution of data for each attribute**
+
+
+I generated histograms to visualize the distribution of data for each attribute for each disease. The data were not normally distributed for each attribute when grouped based on outcome. Also, there were outliers present in the data. Hence, median was used for analysis of these attributes. 
+
+
+
+
+![data_dist_part1](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/891e97cb-52de-431f-a245-878e7346bc6b)
+
