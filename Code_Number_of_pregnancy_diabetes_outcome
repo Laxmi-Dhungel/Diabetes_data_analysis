@@ -1,0 +1,87 @@
+##Median number of pregnancy for both diabetes outcome
+print(df_updated.groupby("Outcome")["Pregnancies"].median())
+###Is pregnancy 4 or above associated with higher diabetes
+
+  
+# perform mann whitney test 
+stat, p_value = mannwhitneyu(df_diabetic["Pregnancies"], df_non_diabetic["Pregnancies"]) 
+print('Statistics=%.2f, p=%.2f' % (stat, p_value))
+
+##Boxplot for number of pregnancies
+pregnancies_box_outcome=sns.boxplot(x="Outcome", y="Pregnancies", data=df_updated, hue="Outcome")
+plt.title("Number of pregnancies for each disease outcome")
+plt.ylabel("Number of pregnancies")
+plt.xlabel("Diabetes outcome")
+plt.legend(title="Disease outcome")
+sns.move_legend(pregnancies_box_outcome, "upper left", bbox_to_anchor=(1, 1.05))
+
+
+plt.ylim(0,25)
+
+pregnancies_box_outcome.annotate(" ", xy=(0.5, 20),  xytext=(0.5, 20), arrowprops=dict(color='black', lw=2, arrowstyle='-[', ), ha='center', size=70)
+plt.text(0.5, 22, "*", ha='center', fontsize=28)
+
+plt.show()
+
+#### #Create percentage of table for the crosstabl df_preg_outcome and plot bar
+
+df_preg_outcome_percentage=pd.crosstab(df_updated['pregnancies_no_category'], df_updated['Outcome'], normalize='index').round(4)*100
+df_preg_outcome_percentage_bar=df_preg_outcome_percentage.plot(kind="bar", rot=0)
+plt.xlabel("Number of pregnancies")
+plt.ylabel("Diabetes outcome (percentages)")
+plt.title("Diabetic outcome percentages based on number of pregnancies")
+plt.legend(title="Disease outcome", labels=["No", "yes"])
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', title="Disease outcome", labels=["No", "yes"])
+df_preg_outcome_percentage_bar.bar_label(df_preg_outcome_percentage_bar.containers[1])
+
+plt.show()
+
+#number of pregnancies per age group for each disease outcome
+age_pregnancies_boxplot=sns.boxplot(x="age_group", y="Pregnancies", hue="Outcome", data=df_updated)
+plt.legend(title='Diabetes')
+plt.xticks(rotation=90)
+plt.ylabel("Number of pregnancies")
+plt.title("Number of pregnancies grouped by age for each disease outcome")
+plt.show()
+
+##Odds ratio and relative risk of diabetes when >=4 pregnancies
+##Odds ratio: Diabetes (1) odds in >=4pregnancies/diabetes (1) odds in < 4 pregnancies
+def odds_ratio(df, cases, non_cases, test, control):
+    odds=df[cases]/df[non_cases]
+    odds_ratio=odds[test]/odds[control]
+    return odds_ratio
+
+def RR(df, cases, non_cases, test, control):
+    risk=df[cases]/df[non_cases]+df[cases]
+    RR=risk[test]/risk[control]
+    return RR
+
+odds_RR_pregnancy_dict={}
+
+
+
+
+odds_preg_outcome=odds_ratio(df_preg_outcome, 1,0, ">=4pregnancies", "< 4 pregnancies")
+print(odds_preg_outcome)
+
+odds_RR_pregnancy_dict["Odds ratio"]=odds_preg_outcome
+
+RR_preg_outcome=RR(df_preg_outcome, 1,0, ">=4pregnancies", "< 4 pregnancies")
+print(RR_preg_outcome)
+
+
+odds_RR_pregnancy_dict["RR"]=RR_preg_outcome
+
+print(odds_RR_pregnancy_dict)
+
+odd_RR_pregnancy_df=pd.DataFrame([odds_RR_pregnancy_dict])
+
+odd_RR_pregnancy_df=round(odd_RR_pregnancy_df,2)
+
+sns.bar_odds_RR_preg=sns.barplot(odd_RR_pregnancy_df)
+plt.xlabel("Odds ratio and relative risk")
+plt.title("Odds ratio and relative risk of diabetes with >=4 pregnancies")
+sns.bar_odds_RR_preg.bar_label(sns.bar_odds_RR_preg.containers[0])
+sns.bar_odds_RR_preg.bar_label(sns.bar_odds_RR_preg.containers[1])
+
+plt.show()
