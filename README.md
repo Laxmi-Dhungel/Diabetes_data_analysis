@@ -65,5 +65,12 @@ I generated histograms to visualize the distribution of data for each attribute 
 
 
 
-![data_dist_part1](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/891e97cb-52de-431f-a245-878e7346bc6b)
+![data_dist_part1](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/d3b824af-a05b-468a-ada3-ff757230f61c)
+
+Figure 5. Histogram showing data distribution for different attributes for each disease outcome. A) Age, B) Number of pregnancies, C) BMI, D) Diabetes Pedigree Function. Outcome=0 (Non-diabetic), Outcome=1 (Diabetic). For each attribute, the data was not normally distributed and there were outliers present.
+
+
+![data_dist_part2](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/12adf675-fe5c-4f84-b9ef-cbac4ef669e4)
+
+Figure 6. Histogram showing data distribution for different attributes for each disease outcome. A) Glucose, B) Insulin, C) Blood Pressure, D) Skin Thickness. The data were not normally distributed and had outliers.
 
