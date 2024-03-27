@@ -1,0 +1,129 @@
+bins= [0,18.5,24.9,29.9,np.inf]
+labels = ["Underweight", "Healthy weight", "Overweight", "Obesity"]  #Ref: https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html
+df_updated['BMI_category'] = pd.cut(df_updated["BMI"], bins=bins, labels=labels)
+print(df_updated['BMI_category'].value_counts())
+df_BMI_outcome=pd.crosstab(df_updated['BMI_category'], df_updated['Outcome'])
+print(stats.chi2_contingency(df_BMI_outcome)) 
+###Expected values below 1 for underweight BMI
+print(df_updated[df_updated['BMI_category']=="Underweight"])  
+##Will continue to work without including underweight BMI category
+df_updated_no_underweight=df_updated[df_updated['BMI_category']!="Underweight"]
+df_BMI_no_underwight_outcome=pd.crosstab(df_updated_no_underweight['BMI_category'], df_updated_no_underweight['Outcome'])
+print(stats.chi2_contingency(df_BMI_no_underwight_outcome))  ##ALll expected frequency >5, statistically significant (P=7.6-15)
+
+##Chisquare test for each pair
+#Ref for following code: https://neuhofmo.github.io/chi-square-and-post-hoc-in-python/
+from itertools import combinations
+BMI_combinations = list(combinations(df_BMI_no_underwight_outcome.index, 2))
+print(BMI_combinations)
+p_BMI=[]
+
+for pairs in BMI_combinations:
+    BMI_combination_data=df_BMI_no_underwight_outcome[(df_BMI_no_underwight_outcome.index == pairs[0]) | (df_BMI_no_underwight_outcome.index == pairs[1])]
+    #print(BMI_combination_data)
+    chi2, p, dof, ex = stats.chi2_contingency(BMI_combination_data, correction=True)
+    p_BMI.append(p)
+    
+
+##Correct the p-value list
+from statsmodels.sandbox.stats.multicomp import multipletests
+
+reject_list, corrected_p_vals = multipletests(p_BMI, method='fdr_bh')[:2]
+
+for p_BMI, corr_p_val, reject in zip(p_BMI, corrected_p_vals, reject_list):
+    print(p_BMI, "\t", corr_p_val, "\t", reject)
+
+
+df_BMI_no_underwight_outcome_percentage=pd.crosstab(df_updated_no_underweight['BMI_category'], df_updated_no_underweight['Outcome'], normalize='index').round(4)*100
+BMI_bar_percentage=df_BMI_no_underwight_outcome_percentage.plot(kind="bar", rot=0)
+plt.xlabel("BMI category")
+plt.ylabel("Diabetes outcome percentages")
+plt.title("Diabetes outcome percentages for different BMI category")
+plt.legend(title="Disease outcome", labels=["No", "yes"])
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', title="Disease outcome", labels=["No", "yes"])
+#BMI_bar_percentage.bar_label(BMI_bar_percentage.containers[0])
+BMI_bar_percentage.bar_label(BMI_bar_percentage.containers[1])
+
+plt.show()
+
+
+df_diabetic=df_updated[df_updated["Outcome"]==1]
+
+df_non_diabetic=df_updated[df_updated["Outcome"]==0]
+### Testing median BMI for each outcome and statistical difference
+print(df_updated.groupby("Outcome")["BMI"].median())
+stat, p_value=mannwhitneyu(df_diabetic["BMI"], df_non_diabetic["BMI"])
+print(p_value)
+
+##Box plot for distribution of BMI for diabetes outcome
+BMI_outcome_boxplot=sns.boxplot(data=df_updated, x="Outcome", y="BMI", hue="Outcome")
+plt.xlabel("Diabetes outcome")
+plt.title("Distribution of BMI for different diabetes outcome")
+
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', title="Diabetes outcome")
+BMI_outcome_boxplot.annotate(" ", xy=(0.5, 60),  xytext=(0.5, 60), arrowprops=dict(color='black', lw=2, arrowstyle='-[', ), ha='center', size=70)
+plt.text(0.5, 63, "*", ha='center', fontsize=28)
+
+
+plt.show()
+
+
+############Odds ratio and BMI calculation
+print("These are columns names: ",df_BMI_no_underwight_outcome.columns)
+
+      
+
+odds_RR_dict={}
+
+def odds_ratio(df, cases, non_cases, test, control):
+    odds=df[cases]/df[non_cases]
+    odds_ratio=odds[test]/odds[control]
+    return odds_ratio
+
+def RR(df, cases, non_cases, test, control):
+    risk=df[cases]/df[non_cases]+df[cases]
+    RR=risk[test]/risk[control]
+    return RR
+
+#odds_BMI=df_BMI_no_underwight_outcome[1]/df_BMI_no_underwight_outcome[0]
+odds_overweight_healthy=odds_ratio(df_BMI_no_underwight_outcome, 1, 0, "Overweight", "Healthy weight")
+print(odds_overweight_healthy) 
+
+
+RR_overweight_healthy=RR(df_BMI_no_underwight_outcome, 1, 0, "Overweight", "Healthy weight")
+
+
+odds_obesity_healthy=odds_ratio(df_BMI_no_underwight_outcome, 1,0, "Obesity", "Healthy weight")
+print(odds_obesity_healthy)
+
+RR_obesity_healthy=RR(df_BMI_no_underwight_outcome, 1,0, "Obesity", "Healthy weight")
+
+
+odds_obesity_overweight=odds_ratio(df_BMI_no_underwight_outcome, 1,0,"Obesity", "Overweight")
+print(odds_obesity_overweight)
+
+RR_obesity_overweight=RR(df_BMI_no_underwight_outcome, 1,0,"Obesity", "Overweight")
+
+
+odds_RR_dict["BMI_category"]=["Over_vs_healthyweight", "Obesity_vs_healthyweight", "Obesity_vs_overweight"]
+odds_RR_dict["Odds_ratio"]=[odds_overweight_healthy, odds_obesity_healthy, odds_obesity_overweight]
+odds_RR_dict["RR"]=[RR_overweight_healthy, RR_obesity_healthy, RR_obesity_overweight]
+
+print(odds_RR_dict)
+
+odd_RR_df=pd.DataFrame(odds_RR_dict)
+odd_RR_df=odd_RR_df.set_index("BMI_category")
+
+odd_RR_df_melt=odd_RR_df.melt(ignore_index=False, var_name="variable", value_name="value")
+odd_RR_df_melt["value"]=round(odd_RR_df_melt["value"],2)
+
+sns_barplot_odd_RR=sns.barplot(data=odd_RR_df_melt, x="BMI_category", y="value", hue="variable")
+plt.ylabel("Odds ratio/relative risk")
+plt.xlabel("Weight-category comparison")
+plt.legend(title="")
+plt.title("Odds ratio and relative risk for diabetes based on weight")
+plt.xticks(rotation=45)
+sns_barplot_odd_RR.bar_label(sns_barplot_odd_RR.containers[0])
+sns_barplot_odd_RR.bar_label(sns_barplot_odd_RR.containers[1])
+
+plt.show()
