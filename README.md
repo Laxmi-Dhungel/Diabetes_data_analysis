@@ -126,4 +126,14 @@ BMI was categorized as underweight (0-18.5), healthy weight(18.5-24.9), overweig
 Figure 12. Barplot showing percentage of diabetic patients for each BMI cateogry. Nearly half (45.03%) of patients with obesity had diabetes. Similarly higher percentages of patients (22.22%) in overweight category had diabetes whereas comparatively lower (7.29%) of patient in healthy weight category had diabetes. The chisquare test was performed for each combination of BMI (healthy weight vs overweight, healthy weight vs obesity  and overweight vs obesity) and the p-value was corrected using FDR correction for multiple comparison. The chisquare test showed a significant association of BMI with diabetes and there was a significant difference in diabetes outcome for each combination of BMI.  
 
 
+![BMI_boxplot](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/b8579313-5433-4e29-9f49-7bc03d179abf)
+
+Figure 13. Boxplot showing distribution of BMI for non-diabetic and diabetic patients. Non-diabetic (outcome 0), diabetic (outcome 1). The median BMI for diabetic patient was significantly higher than non-diabetic patient. (Mann whitney U test, sig = (p<=0.05)). 
+
+
+![OR_RR_BMI](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/8fca66ab-9182-4355-908a-81d485c248da)
+
+Figure 14. Barplot showing odds ratio and relative risk of diabetes for patients with different BMI category. The odds ratio and relative risk for diabetes was very high for patients with obesity compared to patient with healthy weight and overweight. Further, the patient with overweight also had higher odds ratio and relative risk for diabetes compared to patient with healthy weight. 
+
+
 
