@@ -138,11 +138,13 @@ Figure 14. Barplot showing odds ratio and relative risk of diabetes for patients
 
 **Analysis of other attributes and diabetes outcome**
 
-Other attributes such as glucose, blood pressure, skin thickness, insulin and diabetes pedigree function were analyzed for different diabetes outcome. The median value for all of these attributes were significantly higher in diabetic patients compared to non-diabetic patients. 
+Other attributes such as glucose, blood pressure, skin thickness, insulin and diabetes pedigree function were analyzed for different diabetes outcome. The median value for all of these attributes were significantly higher in diabetic patients compared to non-diabetic patients. The scatterplot showed that the diabetic patients had higher glucose and insulin levels compared to non-diabetic patients for same age. There was no clear visible pattern in change of level of these attributes with age. However, the sample size was not uniform for all the age group and hence could be contributing to the unclear pattern. Thus, the uniform sample size for different age groups can provide further insight into relationship between age and the level of these attributes. 
 
 ![feature_median](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/6657bb3c-ec4e-4bbf-b6af-586481bce87d)
 
 Figure 15. Boxplot showing distribution of feature for diabetes outcomes. A) Glucose, B) Insulin, C) Blood Pressure, D)Skin Thickness. The median value for all of these attributes were significantly higher in patients with diabetes (Mann-whitney U test, sig=(p-value <=0.05). Non-diabetic (Diabetes outcome 0), Diabetic (Diabetes outcome 1).
 
 
+![feature_scatterplot](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/b4bbd36e-fe6f-42fc-bb49-32bb8ef3cc9b)
 
+Figure 16. Scatterplot showing relationship between age and different features for different diabetes outcome. A) Glucose, B) Insulin, C) Blood pressure, D) Skin Thickness. Non-diabetic (Diabetes outcome 0), Diabetic (Diabetes outcome 1). Overall, the attributes level are more spreaded for diabetic patients than non-diabetic patients. For most of the ages, the glucose and insulin levels are higher for diabetic patients than non-diabetic patients. The scatterplot does not show a clear pattern of change in level of these attributes for both diabetic and non-diabetic patients. However, the older population had lower sample size which could have impacted the pattern. Hence, uniform sample size for all the age group can provide better insight on the relationship between age and level of these features. 
