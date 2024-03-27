@@ -138,10 +138,11 @@ Figure 14. Barplot showing odds ratio and relative risk of diabetes for patients
 
 **Analysis of other attributes and diabetes outcome**
 
+Other attributes such as glucose, blood pressure, skin thickness, insulin and diabetes pedigree function were analyzed for different diabetes outcome. The median value for all of these attributes were significantly higher in diabetic patients compared to non-diabetic patients. 
 
 ![feature_median](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/6657bb3c-ec4e-4bbf-b6af-586481bce87d)
 
-Figure 15. Boxplot showing distribution of feature for different attributes. A) Glucose, B) Insulin, C) Blood Pressure, D)Skin Thickness. The median value for all of these attributes were significantly higher in patients with diabetes (Mann-whitney U test, sig=(p-value <=0.05). Non-diabetic (Diabetes outcome 0), Diabetic (Diabetes outcome 1).
+Figure 15. Boxplot showing distribution of feature for diabetes outcomes. A) Glucose, B) Insulin, C) Blood Pressure, D)Skin Thickness. The median value for all of these attributes were significantly higher in patients with diabetes (Mann-whitney U test, sig=(p-value <=0.05). Non-diabetic (Diabetes outcome 0), Diabetic (Diabetes outcome 1).
 
 
 
