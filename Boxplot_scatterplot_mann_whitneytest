@@ -1,0 +1,51 @@
+df_non_diabetic=df_updated[df_updated["Outcome"]==0]
+df_diabetic=df_updated[df_updated["Outcome"]==1]
+print(df_non_diabetic.head())
+print(df_diabetic.head())
+
+median_feature=pd.DataFrame(df_updated.groupby("Outcome")[["Glucose", "BloodPressure", "SkinThickness", "Insulin","DiabetesPedigreeFunction", "Age"]].median())
+median_feature.to_csv("median_feature_outcome")
+
+#Mann whitney result for all the columns:
+mann_whitney_result={}
+
+for columns in df_non_diabetic.columns:
+    for columns in df_diabetic.columns:
+        stat, p_value = mannwhitneyu(df_diabetic[columns], df_non_diabetic[columns])
+        mann_whitney_result[columns]=p_value
+
+print(mann_whitney_result)
+for k, v in mann_whitney_result.items():
+    if v<=0.05:
+        mann_whitney_result[k]="*"
+print(mann_whitney_result)
+
+##Box plot for each columns. Since all had signficant difference as per mann whitney have asterik on all columns        
+for columns in df_updated.columns:
+    boxplot_columns=sns.boxplot(data=df_updated, x="Outcome", y=columns, hue="Outcome")
+    plt.xlabel("Diabetes outcome")
+    plt.ylabel(columns)
+    plt.title("Distribution of "+ str(columns)+ " for different diabetes outcome")
+    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', title="Diabetes outcome")
+    boxplot_columns.annotate(" ", xy=(0.5, (df_updated[columns].max())*0.9),  xytext=(0.5, (df_updated[columns].max())*0.9), arrowprops=dict(color='black', lw=2, arrowstyle='-[', ), ha='center', size=70)
+    plt.text(0.5, (df_updated[columns].max())*0.93, "*", ha='center', fontsize=28)
+         
+    plt.show()
+
+columns_scatterplot_list=["Glucose", "BloodPressure", "SkinThickness", "Insulin", "DiabetesPedigreeFunction"]
+index_columns=0
+columns_scatterplot_list_len=len(columns_scatterplot_list)
+while index_columns<columns_scatterplot_list_len:
+    for columns in df_updated.columns:
+        if columns==columns_scatterplot_list[index_columns]:
+        
+            scatter_columns=sns.scatterplot(data=df_updated, x="Age", y=columns, hue="Outcome")
+            plt.xlabel("Age")
+            plt.ylabel(columns)
+            plt.title("Scatterplot showing relationship between age and "+ str(columns))
+            plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', title="Diabetes outcome")
+        
+            plt.show()
+    
+    index_columns+=1
+
