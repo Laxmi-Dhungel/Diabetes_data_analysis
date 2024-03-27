@@ -112,3 +112,13 @@ Figure 10. Barplot showing percentages of non-diabetic and diabetic patients wit
 ![oR_RR_pregnancies](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/9757c20b-7afc-40b7-9d69-c6ef60634493)
 
 Figure 11. Odds ratio and relative risk for diabetes when the number of pregnancies is greater or equal to 4. There odds ratio and relative ratio for diabetes was higher when the patients had number of pregnancies greater or equal to 4. 
+
+
+
+**Impact of BMI on Diabetes outcome**
+
+
+BMI was categorized as underweight (0-18.5), healthy weight(18.5-24.9), overweight (24.9-29.9) and Obesity (>29.9) based on CDC guidelines (Ref: https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html). There were very few data for underweight category (4) and the chisquare testing the association between BMI category and diabetes outcome showed expected frequency of <5. Hence, underweight category was removed for the analysis. A very high percentage of patients with obesity had diabetes (45.03%). Similarly, 22.22% of patients in overweight category had diabetes whereas only 7.29% of patients in healthy weight category had diabetes. The chisquare test showed a significant association between BMI and diabetes. Further there was a significant difference in diabetes outcome for each combination of BMI (healthy weight vs overweight, healthy weight vs obesity and overweight vs obesity). The median BMI for diabetic patients was also significantly higher than non-diabetic patients (p-value<0.05). The odds ratio and relative risk also showed a very high risk of diabetes in patients with obesity compared to patients with healthy weight. The patients with obesity had more than 28 times higher risk of diabetes compared to patients with healthy weight and more than 5 times higher risk of diabetes compared to patients with overweight. The patient with overweight had more than 5 times higher risk of diabetes compared to patients with healthy weight. 
+
+
+
