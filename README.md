@@ -138,7 +138,8 @@ Figure 14. Barplot showing odds ratio and relative risk of diabetes for patients
 
 **Analysis of other attributes and diabetes outcome**
 
-![feature_median](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/3c0dfed1-3f61-4983-aa1d-92c6264c9359)
+
+![feature_median](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/6657bb3c-ec4e-4bbf-b6af-586481bce87d)
 
 Figure 15. Boxplot showing distribution of feature for different attributes. A) Glucose, B) Insulin, C) Blood Pressure, D)Skin Thickness. The median value for all of these attributes were significantly higher in patients with diabetes (Mann-whitney U test, sig=(p-value <=0.05). Non-diabetic (Diabetes outcome 0), Diabetic (Diabetes outcome 1).
 
