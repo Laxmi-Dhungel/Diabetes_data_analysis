@@ -136,4 +136,10 @@ Figure 13. Boxplot showing distribution of BMI for non-diabetic and diabetic pat
 Figure 14. Barplot showing odds ratio and relative risk of diabetes for patients with different BMI category. The odds ratio and relative risk for diabetes was very high for patients with obesity compared to patient with healthy weight and overweight. Further, the patient with overweight also had higher odds ratio and relative risk for diabetes compared to patient with healthy weight. 
 
 
+**Analysis of other attributes and diabetes outcome**
+
+
+
+
+
 
