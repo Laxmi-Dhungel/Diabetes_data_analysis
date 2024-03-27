@@ -1,0 +1,32 @@
+preg_dist=sns.displot(x="Pregnancies", data=df_updated, col="Outcome")
+preg_dist.fig.suptitle('Distribution of number of pregnancies for each disease outcome', y=1.03)
+plt.show()
+
+BMI_dist=sns.displot(x="BMI", data=df_updated, col="Outcome")
+BMI_dist.fig.suptitle('Distribution of BMI for each disease outcome', y=1.03)
+plt.show()
+
+dpf_dist=sns.displot(x="DiabetesPedigreeFunction", data=df_updated, col="Outcome")
+dpf_dist.fig.suptitle('Distribution of DiabetesPedigreeFunction for each disease outcome', y=1.03)
+plt.show()
+
+age_dist=sns.displot(x="Age", data=df_updated, col="Outcome")
+age_dist.fig.suptitle('Distribution of Age for each disease outcome', y=1.03)
+plt.show()
+
+
+glucose_dist=sns.displot(x="Glucose", data=df_updated, col="Outcome")
+glucose_dist.fig.suptitle('Distribution of Glucose for each disease outcome', y=1.03)
+plt.show()
+
+BP_dist=sns.displot(x="BloodPressure", data=df_updated, col="Outcome")
+BP_dist.fig.suptitle('Distribution of Blood Pressure for each disease outcome', y=1.03)
+plt.show()
+
+ST_dist=sns.displot(x="SkinThickness", data=df_updated, col="Outcome")
+ST_dist.fig.suptitle('Distribution of Skin Thickness for each disease outcome', y=1.03)
+plt.show()
+
+Insulin_dist=sns.displot(x="Insulin", data=df_updated, col="Outcome")
+Insulin_dist.fig.suptitle('Distribution of Insulin for each disease outcome', y=1.03)
+plt.show()
