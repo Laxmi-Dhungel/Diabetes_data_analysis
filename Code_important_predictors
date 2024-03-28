@@ -1,0 +1,45 @@
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import QuantileTransformer
+
+
+#To determine most important feature for diabetes outcome
+
+
+
+X=df_updated.drop("Outcome", axis=1).values
+y=df_updated["Outcome"].values
+
+names = df_updated.drop("Outcome", axis=1).columns
+qt = QuantileTransformer()
+
+
+
+X_scaled = qt.fit_transform(X)
+
+logistic_model=LogisticRegression()
+
+logistic_model.fit(X_scaled, y)
+
+coefficients=logistic_model.coef_[0]
+
+logistic_coefficients_dict={}
+
+logistic_coefficients_dict["Features"]=names
+
+logistic_coefficients_dict["Importance"]=coefficients
+
+print(logistic_coefficients_dict)
+
+logistic_coefficeints_df=pd.DataFrame(logistic_coefficients_dict)
+
+sorted_logistic_coefficeints_df = logistic_coefficeints_df.sort_values(by=["Importance"], ascending=False)
+
+sorted_logistic_coefficeints_df.replace("DiabetesPedigreeFunction", "DPF", inplace=True)
+
+logistics_coeef_barplot=sns.barplot(y="Features", x="Importance", data=sorted_logistic_coefficeints_df )
+
+plt.title("Important predictors for diabetes outcome")
+plt.xticks(rotation=90)
+plt.ylabel("Importance")
+plt.show()
