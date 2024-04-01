@@ -68,7 +68,7 @@ Figure 4. Summary of data cleaning and validation steps for diabetes data obtain
 
 **Statistical analysis**
 
-The data were not normally distributed for most of the feature. Hence, Mann-whitney U test was used to determine the significant difference in the feature median between diabetic and non-diabetic patients. The chisquare test was used to test a significant association between categorical varaibles. 
+The data were not normally distributed for most of the feature. Hence, Mann-whitney U test was used to determine the significant difference in the feature median between diabetic and non-diabetic patients. The chisquare test was used to test a significant association between categorical varaibles. P < 0.05 were considered statistically significant. For multiple comparison between categorical variables, the p-value was corrected using FDR correction to determine the significant association. 
 
 
 **Data Analysis**
