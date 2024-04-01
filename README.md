@@ -173,7 +173,7 @@ Figure 17. A) Boxplot showing median value for diabetes pedigree function (DPF) 
 
 **Important predictors of diabetes and principal component analysis**
 
-To determine the importance of attributes in predicting diabetes, a logistic regression model and model coefficients were used. The model coefficients represent importance of the predictor variable as it describes the log odds of change in target variable with 1 unit change in predictor variable(Ref: https://www.ibm.com/docs/en/spss-statistics/saas?topic=risk-logistic-regression-coefficients, https://forecastegy.com/posts/feature-importance-in-logistic-regression/#:~:text=The%20simplest%20way%20to%20calculate,predictor%20and%20the%20target%20variable.). The data were not normally distributed; hence they were transformed to quantiles using Quantiletransformer. The results showed that Glucose is the most important predictor of diabetes followed by BMI and age (Figure 18). 
+To determine the importance of attributes in predicting diabetes, a logistic regression model and model coefficients were used. The model coefficients represent importance of the predictor variable as it describes the log odds of change in target variable with 1 unit change in predictor variable ((Filho, n.d.; IBM, 2023). The data were not normally distributed; hence they were transformed to quantiles using Quantiletransformer. The results showed that Glucose is the most important predictor of diabetes followed by BMI and age (Figure 18). 
 
 ![Important_predictors](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/ce345d36-6dd1-4811-86e4-442a770beb51)
 
@@ -192,4 +192,19 @@ Figure 19. Principal component analysis showing clusters for diabetic and non-di
 The results analyzing diabetes dataset showed that the tested attributes were significantly higher in diabetic patients compared to non-diabetic patients. There was a significant association between number of pregnancies and diabetes outcome. The patients with number of pregnancies greater or equal to 4 had higher odds and relative risk of diabetes compared to patients with lower number of pregnancies (<4). The patients at age group 51-55 years had higher percentages of diabetic patients. The percentages of diabetic patients were less for older age-group patients, however, the results could have been impacted by differences in sample sizes. The sample size for older age-group was low and there was only 1 data of patient with >70 years. The data with more uniform sample sizes will provide better insights on the diabetic percentages in these age-groups. The BMI showed a huge impact on diabetes. The obese patients had a very high odds ratio and relative risk of diabtes compared to patients with healthy weight. Similarly, the patients with overweight had higher odds ratio and relative risk of diabetes compared to patients with healthy weight. The chisquare test showed significant association between the each pair of BMI category (overweight-healthyweight, obesity-healthyweight, overweight-obesity)and diabetes coutcome. BMI was also the second most important predictor of diabetes. 
 
 The relationship between age and attributes such as glucose, insulin, blood pressure, skin thickness and diabetes pedigree function (PDF) was visualized using sccaterplot. Although there was not a clear change pattern of these attributes with age, the glucose, insulin and DPF was higher for diabetic patients compared to non-diabetic patients of same age. The PCA plot showed a separate cluster for diabetic and non-diabetic patients with some overlap in between them. The logistic regression model showed that glucose is the most important predictor of diabetes followed by BMI and age. Thus, these results suggest that these attributes contribute significantly in determining diabetes. In future, they need to be considered and adressed to implement an effetive strategies to diagnose, prevent and treat disease. For example, age 51-55 can be considered as a risk factor for diabetes and can be taken into consideration during diagnosis of the disease. Similarly, plans to prevent and treat obesity (such as diet plan, exercises, medicines, treatment of genetic factors leading to obesity) can also provide preventive and treatment strategy for diabetes. 
+
+**References:**
+
+Centers for Disease Control and Prevention (CDC). (2022). About Adult BMI. Retrieved from https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html
+
+
+Filho, M. (n.d.). How To Get Feature Importance In Logistic Regression. Retrieved from https://forecastegy.com/posts/feature-importance-in-logistic-regression/
+
+
+IBM. (2023). Logistic Regression Coefficients. Retrieved from https://www.ibm.com/docs/en/spss-statistics/saas?topic=risk-logistic-regression-coefficients
+
+
+Kaggle. (2024). Diabeties Dataset. Retrieved from https://www.kaggle.com/datasets/zain280/diabeties-dataset/data
+
+
 
