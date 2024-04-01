@@ -168,7 +168,7 @@ Figure 16. Scatterplot showing relationship between age and different features f
 
 
 ![dpf_diabetes](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/6183d7d8-aad8-421c-8566-f47bcf4d0f63)
-Figure 17. A) Boxplot showing median value for diabetes pedigree function (DPF) for diabetic and non-diabetic patients. B) Scatterplot showing relationship between diabetic pedigree function and age for both diabetic and non-diabetic patients. The median value for DPF was significantly higher for diabetic patients compared to non-diabetic patients (Mann-whitney U test, sig= (P<0.05)). The scatterplot did not show any clear change in DPF with age. However, DPF was higher for diabetic patients compared to non-diabetic patients for same age group. Outcome=0 (Non-diabetic), Outcome=1 (Diabetic)
+Figure 17. A) Boxplot showing median value for diabetes pedigree function (DPF) for diabetic and non-diabetic patients. B) Scatterplot showing relationship between diabetic pedigree function and age for both diabetic and non-diabetic patients. The median value for DPF was significantly higher for diabetic patients compared to non-diabetic patients (Mann-whitney U test, sig= (P<0.05)). The scatterplot did not show any clear change in DPF with age. However, DPF was higher for diabetic patients compared to non-diabetic patients for same age group. Outcome=0 (Non-diabetic), Outcome=1 (Diabetic).
 
 
 **Important predictors of diabetes and principal component analysis**
