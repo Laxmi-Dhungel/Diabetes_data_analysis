@@ -3,6 +3,7 @@ This is a report analyzing diabetes data ontained from kaggle dataset (https://w
 
 
 **Methodology**
+
 The code for data cleaning and validation and each graph is provided as separate file with their respective name. The code for data cleaning and validation need to be included for each section of the code. Example, if you are interested to run "code PCA" to observe scatterplot showing principal component analysis then code from "Data cleaning and validation" needs to be included and ran first. 
 
 The data were analyzed using python in Spyder(Https://www.spyder-ide.org/, n.d.). 
@@ -62,6 +63,9 @@ I rechecked the divided data to confirm that they contain values as expected (ze
 Figure 4. Summary of data cleaning and validation steps for diabetes data obtained from kaggle datasets. The data did not have any duplicate and missing values. However, summary statistics showed unsual values 0 for columns glucose, blood pressure, skin thickness, insulin and BMI. Theses values cannot be 0 and could be assigned 0 for missing values. The data percentages of values 0 were lesser than 5% for glucose, blood pressure and BMI columns. Hence, these rows with values 0 were removed for these columns. The data percentages with values 0 were higher than 5% for insulin and skin thickness columns hence these data were not removed. Since, the data percentages were even higher than 20%, the data were not imputed using mean or median. The insulin and skin thickness with values 0 were predicted based on other columns using linear regression. 
 
 
+**Statistical analysis**
+
+The data were not normally distributed for most of the feature. Hence, Mann-whitney U test was used to determine the significant difference in the feature median between diabetic and non-diabetic patients. 
 
 
 **Data Analysis**
