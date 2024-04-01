@@ -99,7 +99,7 @@ The age was divided into different categories with 5-year intervals. The diabeti
 
 ![Age_diabetic_percentages](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/d00096bc-034b-4d9c-bda1-7c5d2faaee63)
 
-Figure 7. The line graph showing percentages of diabetic patients for each age category. The age was divided into different categories with 5-year intervals. The age-group 51-55 had highest percentages of diabetic patients. There was only 1 data for age-group >70. When this group (>70) was considered then the age group 21-25 had the lowest percentages of diabetes patients.
+Figure 7. The line graph showing percentages of diabetic patients for each age category. The age was divided into different categories with 5-year intervals. The age-group 51-55 had highest percentages of diabetic patients. There was only 1 data for age-group >70. When this group (>70) was not considered then the age group 21-25 had the lowest percentages of diabetes patients.
 
 
 
