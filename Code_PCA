@@ -1,3 +1,9 @@
+import pandas as pd
+import numpy as np
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 df_updated['Outcome'].replace(0, 'Non-diabetic',inplace=True)
 df_updated['Outcome'].replace(1, 'Diabetic',inplace=True)
 #print(df_updated["Outcome"])
