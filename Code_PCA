@@ -1,0 +1,53 @@
+df_updated['Outcome'].replace(0, 'Non-diabetic',inplace=True)
+df_updated['Outcome'].replace(1, 'Diabetic',inplace=True)
+#print(df_updated["Outcome"])
+
+from sklearn.preprocessing import QuantileTransformer
+
+#Important feature X and target variable Y
+X=df_updated.drop("Outcome", axis=1).values
+y=df_updated["Outcome"].values
+
+names = df_updated.drop("Outcome", axis=1).columns
+#Normalizing the data
+qt = QuantileTransformer()
+
+
+
+X = qt.fit_transform(X)
+
+#Converting normalized data to tabular form using pandas dataframe
+
+normalized_df=pd.DataFrame(X,columns=names)
+
+print(normalized_df.head())
+
+#Projecting the data to 2-dimensional PCA components
+from sklearn.decomposition import PCA
+pca_diabetes = PCA(n_components=2) #reduce the dimensionality of the data to 2 principal components.
+principalComponents_diabetes = pca_diabetes.fit_transform(X) #applies the fit_transform method of the PCA instance to the input data X
+
+#Create data frame that contains prinicpal component values for all the samples
+principal_diabetes_df = pd.DataFrame(data = principalComponents_diabetes, columns = ['principal component 1', 'principal component 2'])
+
+principal_diabetes_df["Outcome"]=y
+print(df_updated.shape)
+
+print(principal_diabetes_df.isna().sum())
+print(principal_diabetes_df.head())
+
+print(principal_diabetes_df.shape)
+
+
+#Explained_variance_ratio: the amount of information or variance each principal component holds after projecting the data to a lower dimensional subspace.
+print('Explained variation per principal component: {}'.format(pca_diabetes.explained_variance_ratio_))
+
+
+pca_plot=sns.scatterplot(data=principal_diabetes_df, x='principal component 1', y='principal component 2', hue="Outcome", palette=["red", "green"], alpha=0.8)
+plt.title("Principal component analysis of diabetes dataset")
+plt.xlabel("Principal component 1")
+plt.ylabel("Principal component 2")
+plt.legend(title="Diabetes outcome")
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', title="Diabetes outcome")
+
+plt.show()
