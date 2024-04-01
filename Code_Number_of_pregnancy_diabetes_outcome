@@ -1,3 +1,11 @@
+import pandas as pd
+import numpy as np
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy import stats
+from scipy.stats import mannwhitneyu 
+
 ##Median number of pregnancy for both diabetes outcome
 print(df_updated.groupby("Outcome")["Pregnancies"].median())
 ###Is pregnancy 4 or above associated with higher diabetes
