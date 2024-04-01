@@ -1,6 +1,15 @@
 # Diabetes_data_analysis_report-kaggle
 This is a report analyzing diabetes data ontained from kaggle dataset (https://www.kaggle.com/datasets/zain280/diabeties-dataset/data). The data contains various attributes such as Number of pregnancies, Glucose, Blood pressure, skin thickness, Insulin, Body Mass Index (BMI), Diabetes pedigree Function, and age of patients with diabetes or at a risk of diabetes (ref: https://www.kaggle.com/datasets/zain280/diabeties-dataset/data). In this report, I performed data cleaning and validation and analysis of above factors in determining diabetes outcome.   
 
+
+**Methodology**
+The code for data cleaning and validation and each graph is provided as separate file with their respective name. The code for data cleaning and validation need to be included for each section of the code. Example, if you are interested to run "code PCA" to observe scatterplot showing principal component analysis then code from "Data cleaning and validation" needs to be included and ran first. 
+
+The data were analyzed using python in Spyder(Https://www.spyder-ide.org/, n.d.). 
+
+The python data analysis tools and library used were pandas (1.5.3), numpy (1.24.4), matplotlib (3.5.2), seaborn(0.13.2), scikit-learn(1.0.2), scipy (1.9.1) and statsmodels (0.13.2). 
+
+
 **Data cleaning and validation steps**
 
 The data cleaning and validation steps is summarized in figure . 
@@ -168,3 +177,7 @@ The data were reduced to 2-dimensional space and 2 principal components were ana
 ![pcoA](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/407cf68d-14a9-4051-8a43-4bd0067c7cc9)
 
 Figure 19. Principal component analysis showing clusters for diabetic and non-diabetic patients. The data were normalized using quantile transformer and 2 principal components were determined. The explained variation for principal compoent 1 and principal component 2 are 0.34241589 and 0.19178605 respectively. There is a separation in clusters of diabetic and non-diabetic patients with some overlap in between them. 
+
+
+
+
