@@ -145,7 +145,7 @@ Figure 12. Barplot showing percentage of diabetic patients for each BMI cateogry
 
 ![BMI_boxplot](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/b8579313-5433-4e29-9f49-7bc03d179abf)
 
-Figure 13. Boxplot showing distribution of BMI for non-diabetic and diabetic patients. Non-diabetic (outcome 0), diabetic (outcome 1). The median BMI for diabetic patient was significantly higher than non-diabetic patient. (Mann whitney U test, sig = (p<=0.05)). 
+Figure 13. Boxplot showing distribution of BMI for non-diabetic and diabetic patients. Outcome=0 (Non-diabetic), Outcome=1 (Diabetic). The median BMI for diabetic patient was significantly higher than non-diabetic patient. (Mann whitney U test, sig = (p<=0.05)). 
 
 
 ![OR_RR_BMI](https://github.com/Laxmi-Dhungel/Diabetes_data_analysis-kaggle/assets/154451345/8fca66ab-9182-4355-908a-81d485c248da)
