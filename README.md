@@ -1,5 +1,8 @@
-# Diabetes_data_analysis_report-kaggle
-This is a report analyzing diabetes data ontained from kaggle dataset (https://www.kaggle.com/datasets/zain280/diabeties-dataset/data). The data contains various attributes such as Number of pregnancies, Glucose, Blood pressure, skin thickness, Insulin, Body Mass Index (BMI), Diabetes pedigree Function, and age of patients with diabetes or at a risk of diabetes (ref: https://www.kaggle.com/datasets/zain280/diabeties-dataset/data). In this report, I performed data cleaning and validation and analysis of above factors in determining diabetes outcome.   
+**Analysis of important attributes determining diabetes**
+
+**Summary**
+
+In this report, I have analyzed diabetes data ontained from kaggle dataset (https://www.kaggle.com/datasets/zain280/diabeties-dataset/data). The data contains various attributes such as Number of pregnancies, Glucose, Blood pressure, skin thickness, Insulin, Body Mass Index (BMI), Diabetes pedigree Function, and age of patients with diabetes or at a risk of diabetes (ref: https://www.kaggle.com/datasets/zain280/diabeties-dataset/data). The main objective of this report was to investigate the impact of various atriibutes in detemining diabetes outcome. For the analysis, I initially performed data cleaning and validation and analyzed the mentioned attributes.     
 
 
 **Methodology**
