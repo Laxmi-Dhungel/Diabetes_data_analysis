@@ -1,3 +1,11 @@
+import pandas as pd
+import numpy as np
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy import stats
+from scipy.stats import mannwhitneyu 
+
 bins= [0,18.5,24.9,29.9,np.inf]
 labels = ["Underweight", "Healthy weight", "Overweight", "Obesity"]  #Ref: https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html
 df_updated['BMI_category'] = pd.cut(df_updated["BMI"], bins=bins, labels=labels)
