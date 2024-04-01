@@ -182,7 +182,7 @@ df_zero_I_S["SkinThickness"]=y_S_predict
 
 ######## Concat all tha data (Non-zero both, zero both and zero insulin only, no need for skinthickness only 0 as there are no data for it)
 
-df_updated=pd.concat([df_non_zero_I_S, df_zero_I_S, df_I_zero])
+df_updated=pd.concat([df_non_zero_I_S, df_zero_I_S, df_I_zero], sort=False).sort_index()
 print(df_updated.head())
 print(df_updated.shape)
 #print(df_updated[df_updated["Insulin"]==0])
