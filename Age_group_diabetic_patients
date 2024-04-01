@@ -1,3 +1,11 @@
+import pandas as pd
+import numpy as np
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy import stats
+from scipy.stats import mannwhitneyu 
+
 bins= [20,25,30,35,40,45,50,55,60,65,70, np.inf]
 labels = ["21-25 y", "26-30 y", "31-35 y","36-40 y", "41-45 y", "46-50 y", "51-55 y", "56-60 y", "61-65 y", "66-70 y", ">70 y" ]
 df_updated['age_group'] = pd.cut(df_updated["Age"], bins=bins, labels=labels)
